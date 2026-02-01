@@ -163,7 +163,7 @@ SmartWMS/
 
 | Trợ Lý AI | Lịch Sử IMEI |
 |:---:|:---:|
-| ![AI Chat](../screenshots/ai-chat.png) | ![Traceability](../screenshots/traceability.png) |
+| ![AI Chat](../screenshots/ai_chat.png) | ![Traceability](../screenshots/traceability.png) |
 
 ### 🤝 Đóng Góp
 Dự án này được xây dựng với mục đích học tập và nghiên cứu. Mọi đóng góp, báo lỗi hoặc yêu cầu tính năng đều được hoan nghênh. Vui lòng tạo Issue hoặc Pull Request.
