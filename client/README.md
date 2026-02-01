@@ -1,73 +1,169 @@
-# React + TypeScript + Vite
+# 📦 SmartWMS - Hệ Thống Quản Lý Kho Hàng Công Nghệ Thông Minh
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![SmartWMS Banner](./screenshots/dashboard.png)
 
-Currently, two official plugins are available:
+**SmartWMS** là giải pháp quản lý kho hàng hiện đại được thiết kế chuyên biệt cho các **Cửa hàng Công nghệ (Laptop, Điện thoại, Phụ kiện)**. Hệ thống giải quyết bài toán quản lý định danh (IMEI/Serial), quy trình bảo hành phức tạp và tích hợp **Trí tuệ nhân tạo (Google Gemini AI)** để hỗ trợ ra quyết định kinh doanh.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tính Năng Nổi Bật
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. 📱 Quản lý Kho & Sản phẩm Chuyên sâu
+- **Đặc thù ngành hàng:** Quản lý sản phẩm với cấu hình chi tiết (CPU, RAM, Ổ cứng, Màu sắc, Dung lượng).
+- **Quản lý IMEI/Serial:** Theo dõi tồn kho theo từng mã định danh thiết bị, ngăn chặn thất thoát và tráo đổi hàng hóa.
+- **Phân loại đa cấp:** Quản lý theo Danh mục (Laptop, Phone...) và Thương hiệu (Brand).
+- **In Tem Mã Vạch:** Tích hợp tạo và in tem QR Code dán sản phẩm trực tiếp từ trình duyệt.
 
-## Expanding the ESLint configuration
+### 2. 🔄 Nghiệp vụ Nhập / Xuất & Truy vết
+- **Quy trình chuẩn:** Tạo phiếu Nhập/Xuất có chọn Đối tác (NCC/Khách hàng).
+- **Validate thông minh:** Kiểm tra trùng lặp IMEI khi nhập và kiểm tra tồn kho khi xuất.
+- **Traceability (Truy xuất nguồn gốc):** Tra cứu lịch sử vòng đời của một thiết bị bất kỳ (Ngày nhập -> Ngày bán -> Lịch sử bảo hành) thông qua IMEI.
+- **Kiểm kê kho (Stocktake):** Hỗ trợ chế độ Đếm mù (Blind count) và quét mã QR tốc độ cao.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. 🔧 Dịch vụ Hậu mãi & Tài chính
+- **Quản lý Bảo hành:** Quy trình khép kín: Tiếp nhận -> Kiểm tra -> Sửa chữa -> Tính phí -> Trả khách.
+- **Quản lý Đối tác:** Lưu trữ thông tin Nhà cung cấp và Khách hàng.
+- **Sổ quỹ (Finance):** Quản lý dòng tiền Thu/Chi, tự động tính toán quỹ tiền mặt hiện tại.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 4. 🧠 Trợ lý ảo AI (Powered by Google Gemini)
+- **Health Check:** Tự động phân tích dữ liệu, phát hiện hàng tồn kho lâu, hàng sắp hết.
+- **Dự báo nhu cầu:** Phân tích xu hướng bán hàng 30 ngày qua để gợi ý số lượng nhập hàng cho tháng tới.
+- **Chatbot thông minh:** Hỏi đáp số liệu kho (Doanh thu, Tồn kho, Lịch sử) bằng ngôn ngữ tự nhiên tiếng Việt.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 5. 🛡️ Hệ thống & Bảo mật
+- **Dashboard trực quan:** Biểu đồ doanh thu, cơ cấu kho, Top sản phẩm bán chạy (Recharts).
+- **Phân quyền (RBAC):**
+    - **Admin:** Toàn quyền hệ thống.
+    - **Manager:** Xem báo cáo, AI, Sổ quỹ.
+    - **Staff:** Thao tác kho, bảo hành (Không được xóa dữ liệu).
+- **Audit Log:** Ghi nhật ký mọi thao tác (Ai? Làm gì? Lúc nào?) để tra soát.
+- **Báo cáo:** Xuất file Excel chuẩn kế toán (Tồn kho, Nhật ký Nhập xuất).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Công Nghệ Sử Dụng
+
+### Frontend (Client)
+- **Core:** ReactJS (Vite), TypeScript.
+- **UI/Styling:** Tailwind CSS, Lucide React (Icons).
+- **Data Fetching:** Axios (với Interceptors xử lý Token).
+- **Visualization:** Recharts (Biểu đồ).
+- **Utilities:**
+    - `react-to-print`: In ấn phiếu/tem.
+    - `html5-qrcode`: Quét mã vạch bằng Camera.
+    - `qrcode.react`: Tạo mã QR.
+
+### Backend (Server)
+- **Core:** Python 3.10+, FastAPI (Asynchronous).
+- **Database:** MongoDB (NoSQL).
+- **ODM:** Beanie (Async ODM for MongoDB).
+- **Security:** JWT (JSON Web Token), Passlib (Bcrypt hashing).
+- **AI:** Google Generative AI SDK (Gemini 2.5 Flash).
+- **Data Processing:** Pandas, Xlsxwriter (Xử lý Excel).
+
+---
+
+## ⚙️ Hướng Dẫn Cài Đặt & Triển Khai
+
+### 1. Yêu cầu tiên quyết
+- Node.js (v18 trở lên).
+- Python (v3.10 trở lên).
+- MongoDB (đang chạy ở cổng 27017).
+
+### 2. Cài đặt Backend
+
+```bash
+cd server
+
+# 1. Tạo môi trường ảo
+python -m venv venv
+
+# 2. Kích hoạt môi trường
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# 3. Cài đặt thư viện
+pip install -r requirements.txt
+
+# 4. Cấu hình biến môi trường (Xem phần dưới)
+
+# 5. Chạy Server
+uvicorn app:app --reload
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 3. Cài đặt Frontend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+cd client
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 1. Cài đặt thư viện
+npm install
+
+# 2. Chạy ứng dụng
+npm run dev
 ```
+
+### 🔑 Cấu Hình Biến Môi Trường (.env)
+Tạo file .env trong thư mục server/ và điền các thông tin sau:
+```
+env
+# Kết nối Database
+MONGO_URL=mongodb://localhost:27017
+DB_NAME=warehouse
+
+# Bảo mật (Thay đổi chuỗi này khi deploy thực tế)
+SECRET_KEY=chuoi_bi_mat_sieu_kho_doan_cua_ban_vui_long_thay_doi
+
+# Google Gemini AI Key (Lấy miễn phí tại: aistudio.google.com)
+GOOGLE_API_KEY=AIzaSyDxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Cấu hình Email (Tùy chọn - Nếu dùng tính năng gửi mail cảnh báo)
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
+ADMIN_EMAIL=admin_email@gmail.com
+```
+
+### 🚀 Khởi Tạo Dữ Liệu Mẫu (Seeding)
+Khi chạy lần đầu, database sẽ trống. Hãy thực hiện bước sau để tạo tài khoản Admin và dữ liệu mẫu:
+Đảm bảo Backend và MongoDB đang chạy.
+Mở trình duyệt truy cập: http://127.0.0.1:8000/api/seed
+Hệ thống sẽ thông báo tạo thành công.
+Tài khoản mặc định:
+Username: admin
+Password: 123456
+
+### 📂 Cấu Trúc Thư Mục
+```
+text
+SmartWMS/
+├── client/                 # Frontend ReactJS
+│   ├── src/
+│   │   ├── components/     # Các thành phần giao diện (Inventory, Dashboard...)
+│   │   ├── hooks/          # Custom Hooks (useAuth)
+│   │   ├── services/       # API Services (Axios configuration)
+│   │   └── types/          # TypeScript Interfaces
+│   └── ...
+├── server/                 # Backend FastAPI
+│   ├── app.py              # File chính (Routes, Config)
+│   ├── models.py           # Database Models (Beanie/Pydantic)
+│   ├── auth.py             # Logic xác thực (JWT, Hashing)
+│   ├── ai_service.py       # Logic xử lý AI (Gemini)
+│   ├── log_service.py      # Logic ghi Audit Log
+│   └── ...
+└── README.md
+```
+
+### 📸 Hình Ảnh Minh Họa
+
+| Dashboard | Kho Hàng |
+|:---:|:---:|
+| ![Dashboard](../screenshots/dashboard.png) | ![Inventory](./screenshots/inventory.png) |
+
+| Trợ Lý AI | Lịch Sử IMEI |
+|:---:|:---:|
+| ![AI Chat](./screenshots/ai-chat.png) | ![Traceability](./screenshots/traceability.png) |
+
+### 🤝 Đóng Góp
+Dự án này được xây dựng với mục đích học tập và nghiên cứu. Mọi đóng góp, báo lỗi hoặc yêu cầu tính năng đều được hoan nghênh. Vui lòng tạo Issue hoặc Pull Request.
