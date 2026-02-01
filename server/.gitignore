@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+
+venv/
+.env
+
+.ipynb_checkpoints/
+
+*.pkl
+*.joblib
+*.csv
+
+.vscode/
+.idea/
