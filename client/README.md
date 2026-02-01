@@ -1,6 +1,6 @@
 # 📦 SmartWMS - Hệ Thống Quản Lý Kho Hàng Công Nghệ Thông Minh
 
-![SmartWMS Banner](./screenshots/dashboard.png)
+![SmartWMS Banner](../screenshots/dashboard.png)
 
 **SmartWMS** là giải pháp quản lý kho hàng hiện đại được thiết kế chuyên biệt cho các **Cửa hàng Công nghệ (Laptop, Điện thoại, Phụ kiện)**. Hệ thống giải quyết bài toán quản lý định danh (IMEI/Serial), quy trình bảo hành phức tạp và tích hợp **Trí tuệ nhân tạo (Google Gemini AI)** để hỗ trợ ra quyết định kinh doanh.
 
@@ -159,11 +159,11 @@ SmartWMS/
 
 | Dashboard | Kho Hàng |
 |:---:|:---:|
-| ![Dashboard](../screenshots/dashboard.png) | ![Inventory](./screenshots/inventory.png) |
+| ![Dashboard](../screenshots/dashboard.png) | ![Inventory](../screenshots/inventory.png) |
 
 | Trợ Lý AI | Lịch Sử IMEI |
 |:---:|:---:|
-| ![AI Chat](./screenshots/ai-chat.png) | ![Traceability](./screenshots/traceability.png) |
+| ![AI Chat](../screenshots/ai-chat.png) | ![Traceability](../screenshots/traceability.png) |
 
 ### 🤝 Đóng Góp
 Dự án này được xây dựng với mục đích học tập và nghiên cứu. Mọi đóng góp, báo lỗi hoặc yêu cầu tính năng đều được hoan nghênh. Vui lòng tạo Issue hoặc Pull Request.
